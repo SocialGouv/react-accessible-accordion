@@ -141,8 +141,6 @@ Class(es) to apply to the 'heading' element.
 
 Class(es) to apply to the 'button' element.
 
----
-
 ### AccordionItemPanel
 
 #### className : `string` [*optional*, default: `'accordion__panel'`]
