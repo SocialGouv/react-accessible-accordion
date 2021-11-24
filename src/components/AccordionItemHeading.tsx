@@ -10,7 +10,6 @@ type Props = DivAttributes;
 
 const defaultProps = {
     className: 'accordion__heading',
-    'aria-level': 3,
 };
 
 export const SPEC_ERROR = `AccordionItemButton may contain only one child element, which must be an instance of AccordionItemButton.

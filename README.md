@@ -135,12 +135,6 @@ Enables external control of the expansion.
 
 Class(es) to apply to the 'heading' element.
 
-#### aria-level : `number` [*optional*, default: `3`]
-
-Semantics to apply to the 'heading' element. A value of `1` would make your
-heading element hierarchically equivalent to an `<h1>` tag, and likewise a value
-of `6` would make it equivalent to an `<h6>` tag.
-
 ### AccordionItemButton
 
 #### className : `string` [*optional*, default: `'accordion__button'`]
