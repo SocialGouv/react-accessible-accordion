@@ -5,6 +5,7 @@ on:
     
 jobs:
   publish:
+    name: Publish on github packages
     runs-on: ubuntu-latest 
     permissions: 
       contents: read
@@ -18,10 +19,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@maxgfr'
           always-auth: true
-      - name: Generate .npmrc
-        run: |
-            echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >>  ~/.npmrc
-            cat .npmrc
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test
@@ -29,6 +26,6 @@ jobs:
       - name: Build
         run: yarn build
       - name: Publish
-        run: yarn publish
+        run: echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >>  ~/.npmrc && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
