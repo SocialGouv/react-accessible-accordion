@@ -12,17 +12,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Generate .npmrc
-        run: |
-            echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
-            echo "@maxgfr:registry=https://npm.pkg.github.com" >> .npmrc
-            echo "always-auth=true" >> .npmrc
-            cat .npmrc
       - name: Setup node
         uses: actions/setup-node@v2
         with:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@maxgfr'
+          always-auth: true
+      - name: Generate .npmrc
+        run: |
+            echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >>  ~/.npmrc
+            cat .npmrc
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test
