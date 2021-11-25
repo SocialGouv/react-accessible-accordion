@@ -4,7 +4,7 @@ import DisplayName from '../helpers/DisplayName';
 import { DivAttributes } from '../helpers/types';
 import { assertValidHtmlId } from '../helpers/uuid';
 
-import { Consumer as ItemConsumer, ItemContext } from './ItemContext';
+import { Consumer as ItemConsumer } from './ItemContext';
 
 type Props = DivAttributes;
 
@@ -74,14 +74,13 @@ const AccordionItemHeadingWrapper: React.SFC<DivAttributes> = (
     props: WrapperProps,
 ): JSX.Element => (
     <ItemConsumer>
-        {(itemContext: ItemContext): JSX.Element => {
-            const { headingAttributes } = itemContext;
+        {(): JSX.Element => {
 
             if (props.id) {
                 assertValidHtmlId(props.id);
             }
 
-            return <AccordionItemHeading {...props} {...headingAttributes} />;
+            return <AccordionItemHeading {...props} />;
         }}
     </ItemConsumer>
 );
