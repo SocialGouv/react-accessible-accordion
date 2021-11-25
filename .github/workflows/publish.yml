@@ -23,9 +23,7 @@ jobs:
       # Build
       - run: yarn build
       # Generate .npmrc
-      - uses: actions/github-script@v5
-        with:
-          script: |
+      - run: |
             echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
             echo "@maxgfr:registry=https://npm.pkg.github.com" >> .npmrc
             echo "always-auth=true" >> .npmrc
