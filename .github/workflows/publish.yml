@@ -10,24 +10,25 @@ jobs:
       contents: read
       packages: write 
     steps:
-      # Checkout
-      - uses: actions/checkout@v2
-      # Setup node
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
           registry-url: 'https://npm.pkg.github.com'
-      # Install dependencies
-      - run: yarn install --frozen-lockfile
-      # Test
-      - run: yarn test
-      # Build
-      - run: yarn build
-      # Generate .npmrc
-      - run: |
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn test
+      - name: Build
+        run: yarn build
+      - name: Generate .npmrc
+        run: |
             echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
             echo "@maxgfr:registry=https://npm.pkg.github.com" >> .npmrc
             echo "always-auth=true" >> .npmrc
             cat .npmrc
-      - run: yarn publish
+      - name: Publish
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
