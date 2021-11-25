@@ -1,9 +1,10 @@
 name: Node.js Package
+
 on:
   workflow_dispatch:
     
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest 
     permissions: 
       contents: read
@@ -21,7 +22,14 @@ jobs:
       - run: yarn test
       # Build
       - run: yarn build
-      # Publish to GitHub Packages
+      # Generate .npmrc
+      - uses: actions/github-script@v5
+        with:
+          script: |
+            echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+            echo "@maxgfr:registry=https://npm.pkg.github.com" >> .npmrc
+            echo "always-auth=true" >> .npmrc
+            cat .npmrc
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
