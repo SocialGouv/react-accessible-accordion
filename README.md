@@ -188,10 +188,6 @@ spec-compliant:
 -   Only ever use
     [phrasing content](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#Phrasing_content)
     inside of your `AccordionItemHeading` component. If in doubt, use text only.
--   Always provide an `aria-level` prop to your `AccordionItemHeading`
-    component, _especially_ if you are nesting accordions. This attribute is a
-    signal used by assistive technologies (eg. screenreaders) to determine which
-    heading level (ie. `h1`-`h6`) to treat your heading as.
 
 If you have any questions about your implementation, then please don't be afraid
 to get in touch via our
@@ -217,8 +213,8 @@ description, as written above. By "accordion-like", we mean components which
 have collapsible items but require bespoke interactive mechanisms in order to
 expand, collapse and 'disable' them. This includes (but is not limited to)
 multi-step forms, like those seen in many cart/checkout flows, which we believe
-require (other) complex markup in order to be considered 'accessible'.
-This also includes disclosure widgets.
+require (other) complex markup in order to be considered 'accessible'. This also
+includes disclosure widgets.
 
 ### How do I disable an item?
 
