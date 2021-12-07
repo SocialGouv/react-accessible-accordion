@@ -1,5 +1,5 @@
 
-name: Node.js Package
+name: Publish package on github
 
 on:
   workflow_dispatch:
