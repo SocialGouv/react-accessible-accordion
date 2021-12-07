@@ -75,10 +75,9 @@ bower_components
 # -------------------------------------------------
 # Generated files
 # -------------------------------------------------
-#dist
+dist
 demo/dist
 integration/dist
-dist
 
 # -------------------------------------------------
 # Visual Studio Code
