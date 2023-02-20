@@ -14,7 +14,7 @@
 First, grab the package from npm:
 
 ```sh
-npm install --save react-accessible-accordion
+npm install --save @socialgouv/react-accessible-accordion
 ```
 
 Then, import the editor and use it in your code. Here is a
